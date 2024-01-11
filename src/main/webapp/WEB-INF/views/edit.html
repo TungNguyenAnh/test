@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>sửa</title>
+</head>
+
+<body>
+<p>
+    <a th:href="@{/city}">
+        Back to list city
+    </a>
+</p>
+<div id="form">
+    <form th:action="@{/city/save}" method="post" novalidate="novalidate" th:object="${city}">
+        <input type="hidden" th:field="*{id}">
+        <div>
+            <label>Tên: </label>
+            <input type="text" th:field="*{nameCity}">
+        </div>
+        <div>
+            <label>Quốc gia: </label>
+            <input type="text" th:field="*{nameCountry}">
+        </div>
+        <div>
+            <label>Diện tích: </label>
+            <input type="text" th:field="*{square}">
+        </div>
+        <div>
+            <label>Dân số: </label>
+            <input type="text" th:field="*{population}">
+        </div>
+        <div>
+            <label>GDP: </label>
+            <input type="text" th:field="*{GDP}">
+        </div>
+        <div>
+            <label>Giới thiệu: </label>
+            <input type="text" th:field="*{description}">
+        </div>
+        <input type="submit" value="edit">
+    </form>
+</div>
+</body>
+</html>

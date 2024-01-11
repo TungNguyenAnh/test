@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>City list</title>
+</head>
+<style>
+    table {
+        counter-reset: rowNumber;
+    }
+
+    table tr {
+        counter-increment: rowNumber;
+    }
+
+    table tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
+    }
+</style>
+<body>
+<h3>Danh sách thành phố</h3>
+<p>
+    <a th:href="@{city/create}">
+        create new city
+    </a>
+</p>
+<table border="1">
+    <tr>
+        <th>#</th>
+        <th>Thành phố</th>
+        <th>Quốc Gia</th>
+        <th>Hành động</th>
+    </tr>
+    <tr th:each="list : ${listCity}">
+        <td></td>
+        <td><a th:href="@{/city/{id}/info(id=${list.id})}">
+            <span th:text="${list.nameCity}"></span>
+        </a></td>
+        <td th:text="${list.nameCountry}"></td>
+        <td>
+            <a  th:href="@{/city/{id}/edit(id=${list.id})}">sửa</a>
+            <a  th:href="@{/city/{id}/delete(id=${list.id})}">xóa</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
