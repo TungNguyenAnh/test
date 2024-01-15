@@ -5,6 +5,9 @@
     <title>Thêm thành phố</title>
 </head>
 <body>
+<div th:each="item: ${listErrCreate}">
+    <h1 style="color: red" th:text="${item.getDefaultMessage()}"></h1>
+</div>
 <h1>Thêm thành phố</h1>
 <p>
     <a th:href="@{/city}">

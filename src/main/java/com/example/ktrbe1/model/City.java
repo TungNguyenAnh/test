@@ -4,16 +4,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
+    @NotBlank(message = "Nhap vao em ei!")
     private String nameCity;
     private String nameCountry;
+    @Min(value = 1, message = "Dien tich can la so duong")
     private Long square;
+    @Min(value = 1, message = "Dan so khong the am")
     private int population;
+    @Min(value = 1, message = "GDP am ?")
     private Long GDP;
     private String description;
 

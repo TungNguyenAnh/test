@@ -6,6 +6,9 @@
 </head>
 
 <body>
+<div th:each="item: ${listErrEdit}">
+    <h1 style="color: red" th:text="$item.getDefautlMessage()}"></h1>
+</div>
 <p>
     <a th:href="@{/city}">
         Back to list city
